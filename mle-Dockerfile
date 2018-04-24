@@ -1,0 +1,13 @@
+FROM node:8.11
+
+ENV WORKSPACE /work
+
+RUN mkdir -p $WORKSPACE
+RUN mkdir -p $WORKSPACE/temp
+
+WORKDIR $WORKSPACE
+COPY build.sh .
+
+RUN chmod u+x build.sh
+
+ENTRYPOINT ["./build.sh"]
